@@ -1,0 +1,25 @@
+name: Deploy to Hugging Face Space
+
+on:
+  push:
+    branches: [ master ]  # ou "main" se seu repositório GitHub usa esse nome
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Push to Hugging Face Space
+        run: |
+          git config --global user.email "felipe@gmail.com"
+          git config --global user.name "Felipe Lemes"
+          git clone https://felipelemes:$HF_TOKEN@huggingface.co/spaces/felipelemes/databricks-rag-assistant hf-space
+          rsync -av --exclude='.git' ./ hf-space/
+          cd hf-space
+          git add .
+          git commit -m "Update from GitHub push"
+          git push
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
