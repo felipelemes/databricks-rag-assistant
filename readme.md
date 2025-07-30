@@ -52,8 +52,12 @@ This project aims not only to consolidate my learning in Machine Learning and da
     ```bash
     pip install -r requirements.txt
     ```
-4.  **Download Databricks Documentation PDF:**
-    Place your `azure-databricks.pdf` file (the 17,800-page official documentation) into the `data/` directory.
+4.  4.  **Download Databricks Documentation PDF:**
+    Download the `azure-databricks.pdf` file (the 17,800-page official documentation) from the link below and place it into the `data/` directory of this project.
+    [**Download Azure Databricks Official Documentation PDF (540MB)**](https://drive.google.com/file/d/1AhsUstnfmnvA9vBkPvE5S9GO06gxXa-N/view?usp=sharing)
+
+    *Note: This file is too large to be hosted directly on GitHub, hence the external link.*
+    You can also download the latest Azure Databricks documentation directly from the official website. Simply access the link [**HERE**](https://learn.microsoft.com/en-us/azure/databricks/), scroll to the bottom of the page, locate the "Download PDF" button in the lower-left corner, and click it. Make sure to save the file as "azure-databricks.pdf".
 5.  **Prepare the Vector Database (PDF):**
     This script processes the PDF and creates the initial FAISS vector database.
     ```bash
@@ -125,8 +129,11 @@ Este projeto visa não apenas consolidar meu aprendizado em Machine Learning e e
     ```bash
     pip install -r requirements.txt
     ```
-4.  **Baixe a Documentação PDF do Databricks:**
-    Coloque seu arquivo `azure-databricks.pdf` (a documentação oficial de 17.800 páginas) no diretório `data/`.
+4.  4.  **Baixe a Documentação PDF do Databricks:**
+    Baixe o arquivo `azure-databricks.pdf` (a documentação oficial de 17.800 páginas) no link abaixo e coloque-o no diretório `data/` deste projeto.
+    [**Download da Documentação Oficial do Azure Databricks em PDF (540MB)**](https://drive.google.com/file/d/1AhsUstnfmnvA9vBkPvE5S9GO06gxXa-N/view?usp=sharing)
+    *Observação: Este arquivo é muito grande para ser hospedado diretamente no GitHub, por isso o link externo.*
+    Você também pode baixar a documentação mais recente do Azure Databricks diretamente no site oficial. Basta acessar o link [**AQUI**](https://learn.microsoft.com/en-us/azure/databricks/), ir até o final da página, no canto inferior esquerdo e clicar em BAIXAR PDF. Certifique de salva-lo como "azure-databricks.pdf" 
 5.  **Prepare o Banco de Dados Vetorial (PDF):**
     Este script processa o PDF e cria o banco de dados vetorial FAISS inicial.
     ```bash
