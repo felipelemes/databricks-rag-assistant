@@ -27,11 +27,16 @@ This project aims not only to consolidate my learning in Machine Learning and da
     * Official Databricks Knowledge Base (kb.databricks.com, +900 Q&A articles via web scraping).
 * **Content Processing:**
     * **Chunking:** Text split into chunks of 1000 characters with 200 characters overlap.
-    * **Embeddings:** `all-MiniLM-L6-v2` model (multilingual, for semantic similarity in Portuguese/English).
+    * **Embeddings:** `all-MiniLM-L6-v2` model (multilingual, for semantic similarity across languages).
     * **Vector Database:** FAISS (Facebook AI Similarity Search) for low-latency vector indexing and retrieval.
 * **Large Language Model (LLM):** OpenAI GPT-4o (Generates precise, contextualized, and friendly answers, guided by prompt engineering).
 * **Interface:** Streamlit (interactive web application).
-* **Multilingual Capability:** Supports questions in Portuguese, based on English documentation, and replies in the query's language.
+* **Multilingual Capability:** The assistant can receive questions and respond in **any language** (e.g., English, Portuguese), leveraging the multilingual capabilities of the underlying models, even when the source documentation is in English.
+
+### Live Demo
+
+Experience the assistant in action on Hugging Face Spaces:
+[**Databricks RAG Assistant Live Demo**](https://huggingface.co/spaces/felipelemes/databricks-rag-assistant)
 
 ### Setup and Running Locally
 
@@ -52,12 +57,13 @@ This project aims not only to consolidate my learning in Machine Learning and da
     ```bash
     pip install -r requirements.txt
     ```
-4.  4.  **Download Databricks Documentation PDF:**
-    Download the `azure-databricks.pdf` file (the 17,800-page official documentation) from the link below and place it into the `data/` directory of this project.
-    [**Download Azure Databricks Official Documentation PDF (540MB)**](https://drive.google.com/file/d/1AhsUstnfmnvA9vBkPvE5S9GO06gxXa-N/view?usp=sharing)
-
-    *Note: This file is too large to be hosted directly on GitHub, hence the external link.*
-    You can also download the latest Azure Databricks documentation directly from the official website. Simply access the link [**HERE**](https://learn.microsoft.com/en-us/azure/databricks/), scroll to the bottom of the page, locate the "Download PDF" button in the lower-left corner, and click it. Make sure to save the file as "azure-databricks.pdf".
+4.  **Download Databricks Documentation PDF:**
+    Download the `azure-databricks.pdf` file (the 17,800-page official documentation) from one of the options below and **place this file into the `data/` directory of this project.**
+    * **Option 1 (Google Drive - Recommended for direct download):**
+        [**Download Azure Databricks Official Documentation PDF (540MB)**](https://drive.google.com/file/d/1AhsUstnfmnvA9vBkPvE5S9GO06gxXa-N/view?usp=sharing)
+    * **Option 2 (Official Website):**
+        Alternatively, you can download the latest Azure Databricks documentation directly from the official website. Simply access the link [**HERE**](https://learn.microsoft.com/en-us/azure/databricks/), scroll to the bottom of the page, locate the "Download PDF" button in the lower-left corner, and click it. Make sure to save the file as "azure-databricks.pdf".
+    * *Note: This PDF is too large to be hosted directly on GitHub, hence the external download options.*
 5.  **Prepare the Vector Database (PDF):**
     This script processes the PDF and creates the initial FAISS vector database.
     ```bash
@@ -86,7 +92,6 @@ This project aims not only to consolidate my learning in Machine Learning and da
     streamlit run app.py
     ```
 
-
 ---
 
 ## Português
@@ -105,11 +110,16 @@ Este projeto visa não apenas consolidar meu aprendizado em Machine Learning e e
     * Knowledge Base Oficial do Databricks (kb.databricks.com, +900 artigos de Q&A via web scraping).
 * **Processamento de Conteúdo:**
     * **Chunking:** Texto dividido em pedaços (chunks) de 1000 caracteres com 200 caracteres de sobreposição.
-    * **Embeddings:** Modelo `all-MiniLM-L6-v2` (multilíngue, para similaridade semântica em português/inglês).
+    * **Embeddings:** Modelo `all-MiniLM-L6-v2` (multilíngue, para similaridade semântica entre idiomas).
     * **Banco de Dados Vetorial:** FAISS (Facebook AI Similarity Search) para indexação e recuperação de vetores de baixa latência.
 * **Modelo de Linguagem Grande (LLM):** OpenAI GPT-4o (Geração de respostas precisas, contextualizadas e amigáveis, guiadas por engenharia de prompt).
 * **Interface:** Streamlit (aplicação web interativa).
-* **Capacidade Multilíngue:** Suporta perguntas em português, com base em documentação em inglês, e responde no idioma da consulta.
+* **Capacidade Multilíngue:** O assistente pode receber perguntas e responder em **qualquer idioma** (ex: inglês, português), aproveitando as capacidades multilíngues dos modelos subjacentes, mesmo que a documentação original seja em inglês.
+
+### Demonstração ao Vivo
+
+Experimente o assistente em funcionamento no Hugging Face Spaces:
+[**Assistente RAG Databricks - Demonstração Online**](https://huggingface.co/spaces/felipelemes/databricks-rag-assistant)
 
 ### Configuração e Execução Local
 
@@ -130,11 +140,13 @@ Este projeto visa não apenas consolidar meu aprendizado em Machine Learning e e
     ```bash
     pip install -r requirements.txt
     ```
-4.  4.  **Baixe a Documentação PDF do Databricks:**
-    Baixe o arquivo `azure-databricks.pdf` (a documentação oficial de 17.800 páginas) no link abaixo e coloque-o no diretório `data/` deste projeto.
-    [**Download da Documentação Oficial do Azure Databricks em PDF (540MB)**](https://drive.google.com/file/d/1AhsUstnfmnvA9vBkPvE5S9GO06gxXa-N/view?usp=sharing)
-    *Observação: Este arquivo é muito grande para ser hospedado diretamente no GitHub, por isso o link externo.*
-    Você também pode baixar a documentação mais recente do Azure Databricks diretamente no site oficial. Basta acessar o link [**AQUI**](https://learn.microsoft.com/en-us/azure/databricks/), ir até o final da página, no canto inferior esquerdo e clicar em BAIXAR PDF. Certifique de salva-lo como "azure-databricks.pdf" 
+4.  **Baixe a Documentação PDF do Databricks:**
+    Baixe o arquivo `azure-databricks.pdf` (a documentação oficial de 17.800 páginas) de uma das opções abaixo e **coloque este arquivo `azure-databricks.pdf` dentro do diretório `data/` deste projeto.**
+    * **Opção 1 (Google Drive - Recomendado para download direto):**
+        [**Download da Documentação Oficial do Azure Databricks em PDF (540MB)**](https://drive.google.com/file/d/1AhsUstnfmnvA9vBkPvE5S9GO06gxXa-N/view?usp=sharing)
+    * **Opção 2 (Site Oficial):**
+        Alternativamente, você pode baixar a documentação mais recente do Azure Databricks diretamente no site oficial. Basta acessar o link [**AQUI**](https://learn.microsoft.com/en-us/azure/databricks/), ir até o final da página, no canto inferior esquerdo e clicar em BAIXAR PDF. Certifique-se de salvá-lo como "azure-databricks.pdf".
+    * *Observação: Este arquivo é muito grande para ser hospedado diretamente no GitHub, por isso as opções de download externo.*
 5.  **Prepare o Banco de Dados Vetorial (PDF):**
     Este script processa o PDF e cria o banco de dados vetorial FAISS inicial.
     ```bash
