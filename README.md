@@ -86,6 +86,7 @@ This project aims not only to consolidate my learning in Machine Learning and da
     streamlit run app.py
     ```
 
+
 ---
 
 ## Português
