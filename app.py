@@ -99,50 +99,60 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-st.title("📚 Databricks Study Assistant with RAG") # Updated title text
+# Create columns layout
+col1, col2 = st.columns([3, 1])
 
-# Updated objective description
-st.markdown("""
-    This assistant is designed to provide you with precise, context-aware answers directly sourced from the official Azure Databricks documentation.
-    It aims to significantly aid your studies for Databricks certifications and streamline the process of resolving technical challenges by offering a more fluid and natural consultation experience.
-""")
+with col1:
+    st.title("📚 Databricks Study Assistant with RAG") # Updated title text
 
-# Updated context description
-st.markdown("""
-    This assistant's knowledge base is built upon the official Azure Databricks documentation
-    ([https://learn.microsoft.com/en-us/azure/databricks/](https://learn.microsoft.com/en-us/azure/databricks/))
-    and the official Databricks Azure Knowledge Base
-    ([https://kb.databricks.com/](https://kb.databricks.com/)).
-""")
+    # Updated objective description
+    st.markdown("""
+        This assistant is designed to provide you with precise, context-aware answers directly sourced from the official Azure Databricks documentation.
+        It aims to significantly aid your studies for Databricks certifications and streamline the process of resolving technical challenges by offering a more fluid and natural consultation experience.
+    """)
 
-user_query = st.text_input(
-    "Your question about Databricks documentation:",
-    placeholder="Ex: How to configure Auto Loader in Databricks?"
-)
+    # Updated context description
+    st.markdown("""
+        This assistant's knowledge base is built upon the official Azure Databricks documentation
+        ([https://learn.microsoft.com/en-us/azure/databricks/](https://learn.microsoft.com/en-us/azure/databricks/))
+        and the official Databricks Azure Knowledge Base
+        ([https://kb.databricks.com/](https://kb.databricks.com/)).
+    """)
 
-if st.button("Get Answer", type="primary"):
-    if user_query:
-        with st.spinner("Searching and generating response..."):
-            try:
-                response = qa_chain({"query": user_query})
-                st.subheader("Answer:")
-                st.markdown(response["result"]) # Use markdown for formatting the response
+    user_query = st.text_input(
+        "Your question about Databricks documentation:",
+        placeholder="Ex: How to configure Auto Loader in Databricks?"
+    )
 
-                st.subheader("Source Documents:")
-                if response["source_documents"]:
-                    for i, doc in enumerate(response["source_documents"]):
-                        st.write(f"**Page/Source {i+1}:**")
-                        st.info(doc.page_content) # Content of the chunk
-                        if 'page' in doc.metadata: # If the PDF loader added the page number
-                            st.write(f"*(Page: {doc.metadata['page'] + 1})*") # +1 because it's 0-based
-                        st.markdown("---")
-                else:
-                    st.info("No relevant source documents found for this question.")
-            except Exception as e:
-                st.error(f"An error occurred while processing your question: {e}")
-                st.info("Please check your OpenAI API key, model name, and plan/quotas.")
-    else:
-        st.warning("Please type your question before submitting.")
+    if st.button("Get Answer", type="primary"):
+        if user_query:
+            with st.spinner("Searching and generating response..."):
+                try:
+                    response = qa_chain({"query": user_query})
+                    st.subheader("Answer:")
+                    st.markdown(response["result"]) # Use markdown for formatting the response
+
+                    st.subheader("Source Documents:")
+                    if response["source_documents"]:
+                        for i, doc in enumerate(response["source_documents"]):
+                            st.write(f"**Page/Source {i+1}:**")
+                            st.info(doc.page_content) # Content of the chunk
+                            if 'page' in doc.metadata: # If the PDF loader added the page number
+                                st.write(f"*(Page: {doc.metadata['page'] + 1})*") # +1 because it's 0-based
+                            st.markdown("---")
+                    else:
+                        st.info("No relevant source documents found for this question.")
+                except Exception as e:
+                    st.error(f"An error occurred while processing your question: {e}")
+                    st.info("Please check your OpenAI API key, model name, and plan/quotas.")
+        else:
+            st.warning("Please type your question before submitting.")
+
+with col2:
+    st.markdown("<br><br>", unsafe_allow_html=True)  # Espaço para baixo
+    st.markdown('<div style="text-align: right;">', unsafe_allow_html=True)
+    st.image("donate.png", width=180)
+    st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("---")
 st.caption("Developed by you, with LangChain, Streamlit, and LLMs.")
